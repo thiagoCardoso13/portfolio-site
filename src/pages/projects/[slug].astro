@@ -7,19 +7,24 @@ export function getStaticPaths() {
 const { p } = Astro.props;
 ---
 <Base title={`${p.title} · Thiago Bastos`} description={p.tagline}>
-  <h1>{p.title}</h1>
-  <p class="lead">{p.tagline}</p>
-  <div class="cta">
-    {p.live && <a class="btn primary" href={p.live}>Live demo</a>}
-    <a class="btn" href={p.repo}>Code on GitHub</a>
+  <div class="wrap page-top">
+    <p class="eyebrow">Project</p>
+    <h1>{p.title}</h1>
+    <p class="lead">{p.tagline}</p>
+    <div class="btn-row">
+      {p.live && <a class="btn" href={p.live}>Live demo</a>}
+      <a class="btn ghost" href={p.repo}>Code on GitHub</a>
+    </div>
+    <img class="hero-img" src={p.image} alt={`${p.title} screenshot`} />
+    <ul class="tags">{p.stack.map((s) => <li>{s}</li>)}</ul>
+    <div class="prose">
+      <h2>The problem</h2>
+      <p>{p.problem}</p>
+      <h2>What I built</h2>
+      <ul>{p.solution.map((s) => <li>{s}</li>)}</ul>
+      <h2>What I learned</h2>
+      <p>{p.learned}</p>
+      <p style="margin-top:2rem"><a href="/#projects">← All projects</a></p>
+    </div>
   </div>
-  <img class="hero-img" src={p.image} alt={`${p.title} screenshot`} />
-  <ul class="tags">{p.stack.map((s) => <li>{s}</li>)}</ul>
-  <h2>The problem</h2>
-  <p>{p.problem}</p>
-  <h2>What I built</h2>
-  <ul>{p.solution.map((s) => <li>{s}</li>)}</ul>
-  <h2>What I learned</h2>
-  <p>{p.learned}</p>
-  <p><a href="/#projects">← All projects</a></p>
 </Base>
