@@ -14,7 +14,7 @@ Goal: one public place that shows the projects, the CV and a way to reach me, to
 2. [ ] Add real contact (LinkedIn, email) and a short bio
 3. [ ] Per-project write-ups (screens, GIFs, what I learned)
 4. [ ] SEO basics: titles, Open Graph image, sitemap
-5. [ ] GitHub repo + Vercel deploy, custom domain (optional)
+5. [x] GitHub repo + Vercel deploy (https://portfolio-site-dusky-iota.vercel.app); custom domain still optional
 6. [ ] Add the Project_AI_Agent live demo link, then new projects as they ship
 
 ## Adding a project
