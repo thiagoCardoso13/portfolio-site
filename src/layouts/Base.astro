@@ -1,0 +1,68 @@
+---
+interface Props { title?: string; description?: string }
+const { title = 'Thiago Bastos', description = 'Data and software developer in Elche, Spain. Projects, CV and contact.' } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="wrap nav">
+      <a href="/" class="brand">Thiago Bastos</a>
+      <nav>
+        <a href="/#projects">Projects</a>
+        <a href="/about">About</a>
+        <a href="/cv/Thiago_Bastos_CV_en.pdf">CV</a>
+      </nav>
+    </header>
+    <main class="wrap"><slot /></main>
+    <footer class="wrap foot">
+      <span>
+        <a href="https://github.com/thiagoCardoso13">GitHub</a> ·
+        <a href="https://www.linkedin.com/in/thiagocardoso13/">LinkedIn</a> ·
+        <a href="mailto:thiagobafc@gmail.com">Email</a>
+      </span>
+      <span>Elche, Spain</span>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #fbfbfa; --fg: #1d2327; --muted: #5d6870; --line: #e3e6e8; --card: #fff; --accent: #0f766e;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #101416; --fg: #e8ecee; --muted: #9aa5ab; --line: #263036; --card: #161c1f; --accent: #2dd4bf; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.65 Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 1.25rem; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  h1 { font-size: 2.4rem; line-height: 1.2; margin: 3rem 0 1rem; }
+  h2 { font-size: 1.4rem; margin: 3rem 0 1rem; }
+  .nav { display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; }
+  .nav nav { display: flex; gap: 1.25rem; }
+  .brand { font-weight: 700; color: var(--fg); }
+  .lead { font-size: 1.2rem; color: var(--muted); max-width: 40rem; }
+  .cta { display: flex; gap: .75rem; flex-wrap: wrap; margin: 1.5rem 0; }
+  .btn { padding: .55rem 1rem; border: 1px solid var(--accent); border-radius: 8px; font-weight: 600; }
+  .btn.primary { background: var(--accent); color: var(--bg); }
+  .btn:hover { text-decoration: none; opacity: .88; }
+  .grid { display: grid; gap: 1.25rem; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .card img { width: 100%; height: 220px; object-fit: cover; object-position: top; display: block; border-bottom: 1px solid var(--line); }
+  .card .body { padding: 1.1rem 1.25rem 1.3rem; }
+  .card h3 { margin: 0 0 .3rem; font-size: 1.2rem; }
+  .card p { margin: .3rem 0 .8rem; color: var(--muted); }
+  .tags { display: flex; gap: .4rem; flex-wrap: wrap; padding: 0; margin: 0; list-style: none; }
+  .tags li { font-size: .78rem; padding: .15rem .6rem; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); }
+  .hero-img { width: 100%; border: 1px solid var(--line); border-radius: 12px; margin: 1.5rem 0; }
+  .foot { display: flex; justify-content: space-between; color: var(--muted); border-top: 1px solid var(--line); margin-top: 4rem; padding-top: 1.25rem; padding-bottom: 2rem; font-size: .9rem; }
+</style>

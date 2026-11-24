@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="About · Thiago Bastos">
+  <h1>About</h1>
+  <p class="lead">Data and software developer based in Elche, Spain, looking for my first full-time role.</p>
+  <p>
+    I like problems where the rules matter: concurrent bookings, noisy job-market data, questions that need a
+    careful query. I write the tests, document the trade-offs and ship the result so anyone can try it.
+  </p>
+  <h2>Skills</h2>
+  <ul class="tags">
+    {['Python', 'SQL', 'Java', 'Spring Boot', 'PostgreSQL', 'DuckDB', 'Docker', 'GitHub Actions', 'Streamlit', 'LangGraph'].map((s) => <li>{s}</li>)}
+  </ul>
+  <h2>Get in touch</h2>
+  <p>
+    The fastest way to reach me is <a href="mailto:thiagobafc@gmail.com">thiagobafc@gmail.com</a> or
+    <a href="https://www.linkedin.com/in/thiagocardoso13/">LinkedIn</a>. My code is on
+    <a href="https://github.com/thiagoCardoso13">GitHub</a>, and you can download my CV in
+    <a href="/cv/Thiago_Bastos_CV_en.pdf">English</a> or <a href="/cv/Thiago_Bastos_CV_es.pdf">Spanish</a>.
+  </p>
+</Base>
