@@ -55,6 +55,7 @@ export const projects: Project[] = [
     tagline: 'An AI agent that picks the tables, writes the SQL, runs it, draws a chart and explains the result.',
     stack: ['Python', 'LangGraph', 'DuckDB', 'Streamlit', 'Plotly'],
     image: '/img/text-to-sql.jpg',
+    live: 'https://projectaiagent-pgybf64azfpyftzwls2l2t.streamlit.app/',
     repo: 'https://github.com/thiagoCardoso13/Project_AI_Agent',
     problem:
       'Business users have questions but not SQL. An agent has to be useful without being allowed to break anything.',
