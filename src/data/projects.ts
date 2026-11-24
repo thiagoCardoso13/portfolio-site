@@ -66,4 +66,23 @@ export const projects: Project[] = [
     ],
     learned: 'Tool-using agents, guardrails around generated SQL, and making agent behaviour visible to the user.',
   },
+  {
+    slug: 'spain-paperwork-assistant',
+    title: 'Spain Paperwork Assistant (RAG)',
+    tagline: 'A chat that answers NIE, empadronamiento, health card and degree recognition questions, citing the official page.',
+    stack: ['Python', 'Streamlit', 'ChromaDB', 'fastembed', 'Gemini', 'GitHub Actions'],
+    image: '/img/paperwork-assistant.jpg',
+    live: 'https://spain-paperwork-assistant-y7ancesxw2rncyukxz8r5s.streamlit.app/',
+    repo: 'https://github.com/thiagoCardoso13/spain-paperwork-assistant',
+    problem:
+      'Paperwork information for foreigners is scattered across ministries and councils, written in administrative Spanish, and a generic chatbot will confidently invent fees and deadlines.',
+    solution: [
+      'Retrieval over ten official pages with a free, local multilingual embedding model and a ChromaDB index committed to the repo.',
+      'Every answer cites the page it comes from, and the app refuses instead of guessing when nothing relevant is found.',
+      'A 14-question evaluation set measures retrieval: hit rate went from 79% to 93% after fixing chunking and adding neighbour and page expansion.',
+      'Runs entirely on free services, with model fallback and a per-session question limit to protect the free quota.',
+    ],
+    learned:
+      'Retrieval quality is mostly about chunking and evaluation, not the model; measuring it found a bug that cut words in half. Designing for free-tier limits is part of the work.',
+  },
 ];
