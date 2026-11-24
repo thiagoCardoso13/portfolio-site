@@ -79,10 +79,10 @@ export const projects: Project[] = [
     solution: [
       'Retrieval over ten official pages with a free, local multilingual embedding model and a ChromaDB index committed to the repo.',
       'Every answer cites the page it comes from, and the app refuses instead of guessing when nothing relevant is found.',
-      'A 14-question evaluation set measures retrieval: hit rate went from 79% to 93% after fixing chunking and adding neighbour and page expansion.',
+      'Hybrid search (semantic + keyword) and an evaluation set that measures retrieval: 95% on the tuning questions and 88% on questions written after tuning, up from 79%.',
       'Runs entirely on free services, with model fallback and a per-session question limit to protect the free quota.',
     ],
     learned:
-      'Retrieval quality is mostly about chunking and evaluation, not the model; measuring it found a bug that cut words in half. Designing for free-tier limits is part of the work.',
+      'Retrieval quality is mostly about chunking, hybrid search and honest evaluation, not the model: measuring found a bug that cut words in half, and a held-out set kept me from fooling myself. I also removed a change that did not help the numbers.',
   },
 ];
