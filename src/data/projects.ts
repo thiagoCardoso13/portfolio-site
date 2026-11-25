@@ -85,4 +85,23 @@ export const projects: Project[] = [
     learned:
       'Retrieval quality is mostly about chunking, hybrid search and honest evaluation, not the model: measuring found a bug that cut words in half, and a held-out set kept me from fooling myself. I also removed a change that did not help the numbers.',
   },
+  {
+    slug: 'job-application-agent',
+    title: 'Job Application Agent',
+    tagline: 'An AI agent that reads recruiter emails, updates a tracker, flags deadlines and drafts follow-ups.',
+    stack: ['Python', 'LangGraph', 'Gemini', 'Gmail API', 'Streamlit', 'GitHub Actions'],
+    image: '/img/job-agent.jpg',
+    live: 'https://job-application-agent-xxdsl3jntxsgwh9ctxkwbf.streamlit.app/',
+    repo: 'https://github.com/thiagoCardoso13/job-application-agent',
+    problem:
+      'After about 190 applications, the replies were scattered across my inbox: interview invitations, tests, rejections and automatic confirmations. Keeping track by hand was slow and I was missing things.',
+    solution: [
+      'A LangGraph agent classifies each email (English or Spanish), extracts company, role and date, updates a tracker and flags deadlines in the next 48 hours.',
+      'Business rules live in code, not in the prompt: a stage never goes backwards, a rejection is final, and unclear emails go to a review queue.',
+      'Gmail access is read-only and follow-ups are only drafted, never sent. The public demo uses synthetic emails only.',
+      'On 30 labelled emails the model got 100% of categories right against 63% for a generic keyword baseline. The set is synthetic, so I treat it as a pipeline check, not a benchmark.',
+    ],
+    learned:
+      'Keeping the rules that must not break out of the prompt, writing a fair baseline (my first one, tuned on my own data, scored 100% and proved nothing), and making an agent fail gracefully on free-tier quotas.',
+  },
 ];
