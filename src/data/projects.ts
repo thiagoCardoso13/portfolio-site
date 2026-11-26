@@ -13,6 +13,25 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: 'telemetry-test-station',
+    title: 'Telemetry & Test Station',
+    tagline: 'A ground test station for a simulated pressurised tank: live telemetry, commands, alarms and test reports.',
+    stack: ['Python', 'PostgreSQL', 'TypeScript', 'Fastify', 'React', 'Playwright', 'Docker', 'GitHub Actions'],
+    image: '/img/telemetry-station.jpg',
+    live: 'https://telemetry-test-station.onrender.com',
+    repo: 'https://github.com/thiagoCardoso13/telemetry-test-station',
+    problem:
+      'Testing hardware means trusting what the screen says. Packets get lost or corrupted, alarms must not flicker, and every requirement needs evidence that it was checked, or a clear statement that it was not.',
+    solution: [
+      'A simulator sends binary telemetry over UDP, with a packet format inspired by CCSDS and ECSS (not compliant), and accepts commands and injected faults.',
+      'An ingest service checks every packet, counts losses and corruption, stores readings in PostgreSQL, raises alarms and rides out short database outages.',
+      'A React dashboard shows live values, charts, alarms and the result of each command. A test runner traces sequences to requirements and also lists what is not covered.',
+      '128 automated tests, including browser tests in CI. Median 5 ms from simulator to browser feed, measured on a laptop. All data is synthetic.',
+    ],
+    learned:
+      'Designing a binary protocol, treating bad input as normal (one wild packet could silence the ingest until I made it resynchronise), and reporting honestly what the tests do not cover.',
+  },
+  {
     slug: 'space-booking-api',
     title: 'Space Booking API',
     tagline: 'REST API to book rooms, desks and courts, with no double bookings even under concurrency.',
