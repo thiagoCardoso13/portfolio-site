@@ -13,6 +13,25 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: 'energy-demand-forecast',
+    title: 'Energy Demand Forecast',
+    tagline: 'Every day it forecasts the next day of Spain\'s electricity demand, hour by hour, and records how close it was.',
+    stack: ['Python', 'pandas', 'scikit-learn', 'MLflow', 'FastAPI', 'Streamlit', 'GitHub Actions'],
+    image: '/img/energy-forecast.jpg',
+    live: 'https://energy-demand-forecast-pz2daz6h6ksbmcszecf7nl.streamlit.app/',
+    repo: 'https://github.com/thiagoCardoso13/energy-demand-forecast',
+    problem:
+      'A forecast is easy to make look good by accident: one value from the future slipping into the features is enough. The goal was an error number that would hold in real use.',
+    solution: [
+      'Each forecast uses only what is known at 10:00 the day before, including the temperature forecast of that moment instead of the observed temperature. Tests tamper with later data and check that nothing changes.',
+      'A rolling backtest compares gradient boosting and linear regression against a simple baseline, with runs tracked in MLflow.',
+      'On a held-out period used once (September to November 2026): 2.70% mean error, against 4.94% for repeating the previous week.',
+      'A scheduled GitHub Actions job records the forecast in the repository, a Streamlit dashboard shows it, and a read-only FastAPI service (run locally) serves it.',
+    ],
+    learned:
+      'Preventing data leakage, comparing against a baseline before trusting a model, and saying where the number is optimistic.',
+  },
+  {
     slug: 'telemetry-test-station',
     title: 'Telemetry & Test Station',
     tagline: 'A ground test station for a simulated pressurised tank: live telemetry, commands, alarms and test reports.',
