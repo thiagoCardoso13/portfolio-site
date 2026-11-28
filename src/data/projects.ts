@@ -32,6 +32,25 @@ export const projects: Project[] = [
       'Preventing data leakage, comparing against a baseline before trusting a model, and saying where the number is optimistic.',
   },
   {
+    slug: 'elche-air-quality',
+    title: 'Elche Air Quality Pipeline',
+    tagline: 'A daily data pipeline for the air Elche breathes: Airflow, dbt tests and a public report.',
+    stack: ['Python', 'Apache Airflow', 'dbt', 'PostgreSQL', 'Docker', 'GitHub Actions'],
+    image: '/img/air-quality.jpg',
+    live: 'https://thiagocardoso13.github.io/elche-air-quality/',
+    repo: 'https://github.com/thiagoCardoso13/elche-air-quality',
+    problem:
+      'Hourly measurements arrive with gaps, invalid values and later corrections, and the legal thresholds themselves change on 12 December 2026. Running the pipeline twice must not duplicate or distort anything.',
+    solution: [
+      'Apache Airflow downloads the data of two stations from the European Environment Agency, loads it into PostgreSQL without duplicates and runs dbt once a day, on my own machine with Docker Compose.',
+      'dbt models keep gaps visible, handle 23 and 25 hour days, and judge each hour by the rules in force on that day, with 26 automated tests plus dbt data tests.',
+      'A GitHub Actions job rebuilds the public report every day with the same extraction and models.',
+      'From January to 28 November 2026, ozone was above the WHO guideline on 123 days at each station, while no EU threshold was exceeded. The source data is not yet verified.',
+    ],
+    learned:
+      'Making loads safe to repeat, putting rules and their dates in data instead of code, and separating a health guideline from a legal limit when reporting.',
+  },
+  {
     slug: 'telemetry-test-station',
     title: 'Telemetry & Test Station',
     tagline: 'A ground test station for a simulated pressurised tank: live telemetry, commands, alarms and test reports.',
