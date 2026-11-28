@@ -134,7 +134,7 @@ export const projects: Project[] = [
     problem:
       'Paperwork information for foreigners is scattered across ministries and councils, written in administrative Spanish, and a generic chatbot will confidently invent fees and deadlines.',
     solution: [
-      'Retrieval over ten official pages with a free, local multilingual embedding model and a ChromaDB index committed to the repo.',
+      'Retrieval over twelve official pages with a free, local multilingual embedding model and a ChromaDB index committed to the repo.',
       'Every answer cites the page it comes from, and the app refuses instead of guessing when nothing relevant is found.',
       'Hybrid search (semantic + keyword) and an evaluation set that measures retrieval: 95% on the tuning questions and 88% on questions written after tuning, up from 79%.',
       'Runs entirely on free services, with model fallback and a per-session question limit to protect the free quota.',
